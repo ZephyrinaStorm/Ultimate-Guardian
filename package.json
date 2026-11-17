@@ -1,0 +1,23 @@
+{
+  "name": "ultimate-guardian",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Discord security bot and public website, configured entirely through slash commands",
+  "main": "index.js",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "deploy": "node bot/deploy-commands.js",
+    "test": "node --test",
+    "website": "node website/server.js",
+    "check": "node bot/check.js",
+    "build": "node bot/build-reference.js",
+    "backup-data": "node bot/backup-data.js"
+  },
+  "dependencies": {
+    "discord.js": "^14.25.1",
+    "dotenv": "^16.6.1"
+  }
+}

@@ -1,0 +1,31 @@
+# Upload this file beside package.json at the root of your GitHub repository.
+# Runs the Discord bot and public website together. No dashboard is included.
+# This uses paid compute and a persistent disk to preserve bot records.
+services:
+  - type: web
+    name: ultimate-guardian
+    runtime: node
+    plan: 0.5c-512mb
+    numInstances: 1
+    buildCommand: npm ci --omit=dev && npm run build
+    startCommand: npm start
+    healthCheckPath: /healthz
+    # Register slash commands once after the first successful deployment.
+    initialDeployHook: npm run deploy
+    disk:
+      name: guardbot-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: NODE_VERSION
+        value: '24'
+      - key: NODE_ENV
+        value: production
+      - key: DATA_DIR
+        value: /var/data
+      - key: DISCORD_BOT_TOKEN
+        sync: false
+      - key: DISCORD_CLIENT_ID
+        sync: false
+      - key: SUPPORT_URL
+        value: https://github.com/ZephyrinaStorm/Ultimate-Guardian/issues

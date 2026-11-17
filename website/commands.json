@@ -1,0 +1,202 @@
+[
+  {
+    "name": "backup create",
+    "description": "Capture roles, channels and overwrites",
+    "options": "name (required)"
+  },
+  {
+    "name": "backup list",
+    "description": "Show latest 20 backups",
+    "options": ""
+  },
+  {
+    "name": "backup download",
+    "description": "download a server structure backup",
+    "options": "id (required)"
+  },
+  {
+    "name": "backup delete",
+    "description": "delete a server structure backup",
+    "options": "id (required)"
+  },
+  {
+    "name": "backup restore",
+    "description": "restore a server structure backup",
+    "options": "id (required) · confirm (required)"
+  },
+  {
+    "name": "help",
+    "description": "Friendly list of all commands",
+    "options": ""
+  },
+  {
+    "name": "ping",
+    "description": "Check bot latency",
+    "options": ""
+  },
+  {
+    "name": "serverinfo",
+    "description": "Show this server’s public information",
+    "options": ""
+  },
+  {
+    "name": "lockdown",
+    "description": "Restrict @everyone sending in text channels",
+    "options": "enabled (required)"
+  },
+  {
+    "name": "ban",
+    "description": "Ban a server member",
+    "options": "target (required) · reason"
+  },
+  {
+    "name": "kick",
+    "description": "Kick a server member",
+    "options": "target (required) · reason"
+  },
+  {
+    "name": "warn",
+    "description": "Warn a server member",
+    "options": "target (required) · reason"
+  },
+  {
+    "name": "mod mute",
+    "description": "Timeout a member",
+    "options": "target (required) · duration (required) · reason"
+  },
+  {
+    "name": "mod unmute",
+    "description": "Remove a timeout",
+    "options": "target (required) · reason"
+  },
+  {
+    "name": "mod unban",
+    "description": "Unban a user by ID",
+    "options": "user-id (required) · reason"
+  },
+  {
+    "name": "mod purge",
+    "description": "Delete recent messages, up to 14 days old",
+    "options": "amount (required)"
+  },
+  {
+    "name": "cases",
+    "description": "View recent moderation cases",
+    "options": "target"
+  },
+  {
+    "name": "protection anti-link",
+    "description": "Enable or disable anti-link",
+    "options": "enabled (required)"
+  },
+  {
+    "name": "protection anti-spam",
+    "description": "Enable or disable anti-spam",
+    "options": "enabled (required)"
+  },
+  {
+    "name": "protection anti-raid",
+    "description": "Enable or disable anti-raid",
+    "options": "enabled (required)"
+  },
+  {
+    "name": "protection anti-nuke",
+    "description": "Enable or disable anti-nuke",
+    "options": "enabled (required)"
+  },
+  {
+    "name": "protection anti-scam",
+    "description": "Enable or disable anti-scam",
+    "options": "enabled (required)"
+  },
+  {
+    "name": "protection anti-alt",
+    "description": "Enable or disable anti-alt",
+    "options": "enabled (required)"
+  },
+  {
+    "name": "protection anti-new-account",
+    "description": "Enable or disable anti-new-account",
+    "options": "enabled (required)"
+  },
+  {
+    "name": "protection anti-webhook",
+    "description": "Enable or disable anti-webhook",
+    "options": "enabled (required)"
+  },
+  {
+    "name": "protection status",
+    "description": "Show saved protection settings",
+    "options": ""
+  },
+  {
+    "name": "protection thresholds",
+    "description": "Tune protection thresholds",
+    "options": "spam · raid · account-days"
+  },
+  {
+    "name": "blacklist add",
+    "description": "add a word, domain or user ID",
+    "options": "type (required) [word, domain, user] · value (required)"
+  },
+  {
+    "name": "blacklist remove",
+    "description": "remove a word, domain or user ID",
+    "options": "type (required) [word, domain, user] · value (required)"
+  },
+  {
+    "name": "blacklist list",
+    "description": "Show blacklist entries",
+    "options": ""
+  },
+  {
+    "name": "config logs",
+    "description": "Set a private moderation log channel",
+    "options": "channel (required)"
+  },
+  {
+    "name": "config tickets",
+    "description": "Configure private support tickets",
+    "options": "role (required) · category (required)"
+  },
+  {
+    "name": "config trust",
+    "description": "Trust a user for anti-nuke and webhook protections",
+    "options": "user (required) · enabled (required)"
+  },
+  {
+    "name": "config show",
+    "description": "Show this server’s configuration",
+    "options": ""
+  },
+  {
+    "name": "config export",
+    "description": "Export stored server data privately",
+    "options": ""
+  },
+  {
+    "name": "config reset",
+    "description": "Delete all stored settings, cases and backups",
+    "options": "confirm (required)"
+  },
+  {
+    "name": "ticket open",
+    "description": "Open a private ticket",
+    "options": "subject (required)"
+  },
+  {
+    "name": "ticket close",
+    "description": "Close this ticket and lock the opener’s access",
+    "options": ""
+  },
+  {
+    "name": "ticket claim",
+    "description": "Claim this ticket as support staff",
+    "options": ""
+  },
+  {
+    "name": "ticket transcript",
+    "description": "Export up to 500 recent ticket messages privately",
+    "options": ""
+  }
+]

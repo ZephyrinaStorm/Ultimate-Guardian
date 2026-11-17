@@ -1,0 +1,3 @@
+require('dotenv').config();
+const {DatabaseSync,backup}=require('node:sqlite');const path=require('node:path');const fs=require('node:fs');
+(async()=>{const root=process.env.DATA_DIR||'./data';const source=path.join(root,'guardbot.sqlite');if(!fs.existsSync(source))throw new Error('No database exists yet. Start the bot first.');const target=path.resolve(process.argv[2]||path.join(root,`guardbot-${new Date().toISOString().replace(/[:.]/g,'-')}.sqlite`));if(fs.existsSync(target))throw new Error('Destination already exists.');const db=new DatabaseSync(source,{readOnly:true});try{await backup(db,target);console.log(`Database backup written to ${target}. Copy it to an independent location.`);}finally{db.close();}})().catch(e=>{console.error(e.message);process.exitCode=1;});

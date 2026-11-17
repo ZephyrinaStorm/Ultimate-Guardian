@@ -1,0 +1,3 @@
+const fs=require('node:fs'),path=require('node:path');const {loadCommands}=require('./load-commands');
+const rows=loadCommands().flatMap(c=>{const d=c.data.toJSON();const subs=d.options?.filter(o=>o.type===1)||[];return (subs.length?subs:[d]).map(s=>({name:s===d?d.name:`${d.name} ${s.name}`,description:s.description,options:(s.options||[]).map(o=>`${o.name}${o.required?' (required)':''}${o.choices?` [${o.choices.map(c=>c.value).join(', ')}]`:''}`).join(' · ')}));});
+fs.writeFileSync(path.join(__dirname,'../website/commands.json'),JSON.stringify(rows,null,2)+'\n');console.log(`Built reference for ${rows.length} actions.`);

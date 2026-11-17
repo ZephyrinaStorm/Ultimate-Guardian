@@ -1,0 +1,9 @@
+const {SlashCommandBuilder}=require('discord.js');
+const {P,reply,requirePerm}=require('../utils');
+const {lockdown}=require('../lockdown');
+const commands=[
+ {data:new SlashCommandBuilder().setName('help').setDescription('Friendly list of all commands'),async execute(i){await reply(i,'Ultimate Guardian • Command guide','**Moderation**\n/ban • /kick • /warn • /mod mute, unmute, unban, purge • /cases\n\n**Protection**\n/protection status • anti-link • anti-spam • anti-raid • anti-nuke • anti-scam • anti-alt • anti-new-account • anti-webhook • thresholds\n/blacklist add, remove, list • /lockdown enabled\n\n**Configuration**\n/config logs, tickets, trust, show, export, reset\n\n**Support & recovery**\n/ticket open, close, claim, transcript\n/backup create, list, download, restore, delete\n\n**Information**\n/help • /ping • /serverinfo\n\nStart with /config logs, /config tickets, then enable protection modules. All protections start disabled.');}},
+ {data:new SlashCommandBuilder().setName('ping').setDescription('Check bot latency'),async execute(i){await reply(i,'Bot latency',`${Math.max(0,i.client.ws.ping)} ms gateway latency`);}},
+ {data:new SlashCommandBuilder().setName('serverinfo').setDescription('Show this server’s public information'),async execute(i){await reply(i,i.guild.name,`Members: ${i.guild.memberCount}\nCreated: ${i.guild.createdAt.toISOString().slice(0,10)}\nServer ID: ${i.guildId}`);}},
+ {data:new SlashCommandBuilder().setName('lockdown').setDescription('Restrict @everyone sending in text channels').setDefaultMemberPermissions(P.Administrator).addBooleanOption(o=>o.setName('enabled').setDescription('Enable lockdown or restore previous overwrites').setRequired(true)),async execute(i){requirePerm(i,P.Administrator,P.ManageRoles|P.ManageChannels);await i.deferReply({ephemeral:true});await reply(i,'Server lockdown',await lockdown(i.guild,i.client.store,i.options.getBoolean('enabled')));}}
+];module.exports=commands;
